@@ -15,7 +15,8 @@ class Booking(models.Model):
 class Menu(models.Model):
     name = models.CharField(max_length=200)
     price = models.IntegerField()
+    description = models.TextField(blank=False)
 
     def __str__(self) -> str:
-        return self.name
+        return self.name + " : " + str(self.price)
 # Add code to create Menu model
