@@ -27,5 +27,16 @@ def menu(request):
     menu_data = Menu.objects.all()
     main_data = dict()
     main_data = {"menu": menu_data}
+    print(main_data)
     return render(request, 'menu.html', main_data)
-    # Add your code here to create new views
+
+
+def displayMenuItems(request, pk):
+    if pk:
+        menu_ = Menu.objects.get(pk=pk)
+        menu_items = dict()
+        menu_items = {"menu_item": menu_}
+    else:
+        menu_items = {}
+    print(menu_items, " ", menu_items["menu_item"])
+    return render(request, 'menu_items.html', menu_items)
